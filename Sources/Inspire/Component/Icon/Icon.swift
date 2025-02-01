@@ -11,11 +11,18 @@ struct Icon: View {
     let name: IconName
     let size: CGFloat
     let color: Color
-    
-    init(name: IconName, size: CGFloat = 20, color: Color = .content.emphasized) {
+    let action: (() -> Void)?
+        
+    init(
+        name: IconName = GlyphIcon.DEFAULT,
+        size: CGFloat = 20,
+        color: Color = .content.emphasized,
+        action: (() -> Void)? = nil
+    ) {
         self.name = name
         self.size = size
         self.color = color
+        self.action = action
     }
     
     private var imageName: String {
@@ -26,7 +33,7 @@ struct Icon: View {
         }
     }
     
-    var body: some View {
+    private var iconView: some View {
         Image(imageName, bundle: .module)
             .renderingMode(.template)
             .resizable()
@@ -34,11 +41,23 @@ struct Icon: View {
             .frame(width: size, height: size)
             .foregroundStyle(color)
     }
+    
+    var body: some View {
+        if let action {
+            Button(action: action) {
+                iconView
+            }
+        } else {
+            iconView
+        }
+    }
 }
 
 #Preview {
     VStack(spacing: 8) {
         Icon(name: GlyphIcon.ADD, size: 32, color: .content.default)
-        Icon(name: BrandIcon.DISCORD, size: 32, color: .solid.blue)
+        Icon(name: BrandIcon.DISCORD, size: 32, color: .solid.blue, action: {
+            print("Discord")
+        })
     }
 }
