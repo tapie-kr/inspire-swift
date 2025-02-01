@@ -8,27 +8,32 @@
 import SwiftUI
 
 public struct Segment<T: Equatable>: View {
-    @Environment(SegmentGroupState<T>.self) private var groupState
+    @Environment(SegmentGroupState<T>.self) private var groupState: SegmentGroupState<T>?
     
     let label: String
     let value: T
     let leadingIcon: IconName?
-    let fullWidth: Bool
     
     public init(
         label: String,
         value: T,
         leadingIcon: IconName? = nil,
-        fullWidth: Bool = true
+        standalone: Bool = false
     ) {
         self.label = label
         self.value = value
         self.leadingIcon = leadingIcon
-        self.fullWidth = fullWidth
+    }
+    
+    private var isStandAlone: Bool {
+        groupState == nil
     }
     
     private var foregroundColor: Color {
-        groupState.selectedValue.wrappedValue == value ? .content.emphasized : .content.default
+        guard let groupState else {
+            return .content.default
+        }
+        return groupState.selectedValue.wrappedValue == value ? .content.emphasized : .content.default
     }
     
     var segmentView: some View {
@@ -36,7 +41,7 @@ public struct Segment<T: Equatable>: View {
             if let leadingIcon {
                 Icon(name: leadingIcon, size: 20, color: foregroundColor)
             }
-            Typo(label, size: .petite, weight: groupState.selectedValue.wrappedValue == value ? .semibold : .medium, color: foregroundColor)
+            Typo(label, size: .petite, weight: groupState?.selectedValue.wrappedValue == value ? .semibold : .medium, color: foregroundColor)
         }
         .padding(.horizontal, spacingVars.micro)
         .padding(.vertical, spacingVars.tiny)
@@ -44,11 +49,11 @@ public struct Segment<T: Equatable>: View {
     
     public var body: some View {
         Button(action: {
-            groupState.selectedValue.wrappedValue = value
+            groupState?.selectedValue.wrappedValue = value
         }) {
             segmentView
-                .frame(maxWidth: fullWidth ? .infinity : nil)
-                .background(groupState.selectedValue.wrappedValue == value ? Color.grayscale.translucent._5 : .clear)
+                .frame(maxWidth: isStandAlone ? nil : .infinity)
+                .background(groupState?.selectedValue.wrappedValue == value ? Color.grayscale.translucent._5 : .clear)
                 .radius(.sharp)
         }
     }

@@ -46,6 +46,8 @@ public struct SegmentGroup<T: Equatable, Content: View>: View {
             Segment(label: "Segment 1", value: 1, leadingIcon: GlyphIcon.DEFAULT)
             Segment(label: "Segment 2", value: 2, leadingIcon: BrandIcon.NPM)
         }
+        
+        Segment(label: "Segment Test", value: 3, leadingIcon: BrandIcon.TAPIE)
     }
     .frame(width: 300)
 }
