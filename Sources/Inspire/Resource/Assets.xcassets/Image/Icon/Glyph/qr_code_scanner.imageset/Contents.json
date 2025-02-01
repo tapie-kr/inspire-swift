@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "Name=qr_code_scanner.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}
