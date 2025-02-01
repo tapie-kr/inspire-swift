@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-public struct ColorVars {
-    public init() {}
+extension Color {
     
-    public static let Transparent = Color("Solid/Blue", bundle: .module)
+    public static let transparent = Color("Solid/Blue", bundle: .module)
     
-    public struct Grayscale {
-        public struct Solid {
+    public struct grayscale {
+        public struct solid {
             public static let _5 = Color("Grayscale/Solid/5", bundle: .module)
             public static let _10 = Color("Grayscale/Solid/10", bundle: .module)
             public static let _15 = Color("Grayscale/Solid/15", bundle: .module)
@@ -29,33 +28,33 @@ public struct ColorVars {
             public static let _95 = Color("Grayscale/Solid/95", bundle: .module)
         }
         
-        public struct Translucent {
-            public static let _5 = Color(light: ColorVars.Solid.Translucent.Black._5, dark: ColorVars.Solid.Translucent.White._5)
-            public static let _10 = Color(light: ColorVars.Solid.Translucent.Black._10, dark: ColorVars.Solid.Translucent.White._10)
-            public static let _15 = Color(light: ColorVars.Solid.Translucent.Black._15, dark: ColorVars.Solid.Translucent.White._15)
-            public static let _20 = Color(light: ColorVars.Solid.Translucent.Black._20, dark: ColorVars.Solid.Translucent.White._20)
-            public static let _30 = Color(light: ColorVars.Solid.Translucent.Black._30, dark: ColorVars.Solid.Translucent.White._30)
-            public static let _40 = Color(light: ColorVars.Solid.Translucent.Black._40, dark: ColorVars.Solid.Translucent.White._40)
-            public static let _50 = Color(light: ColorVars.Solid.Translucent.Black._50, dark: ColorVars.Solid.Translucent.White._50)
-            public static let _60 = Color(light: ColorVars.Solid.Translucent.Black._60, dark: ColorVars.Solid.Translucent.White._60)
-            public static let _70 = Color(light: ColorVars.Solid.Translucent.Black._70, dark: ColorVars.Solid.Translucent.White._70)
-            public static let _80 = Color(light: ColorVars.Solid.Translucent.Black._80, dark: ColorVars.Solid.Translucent.White._80)
-            public static let _85 = Color(light: ColorVars.Solid.Translucent.Black._85, dark: ColorVars.Solid.Translucent.White._85)
-            public static let _90 = Color(light: ColorVars.Solid.Translucent.Black._90, dark: ColorVars.Solid.Translucent.White._90)
-            public static let _95 = Color(light: ColorVars.Solid.Translucent.Black._95, dark: ColorVars.Solid.Translucent.White._95)
+        public struct translucent {
+            public static let _5 = Color(light: Color.solid.translucent.black._5, dark: Color.solid.translucent.white._5)
+            public static let _10 = Color(light: Color.solid.translucent.black._10, dark: Color.solid.translucent.white._10)
+            public static let _15 = Color(light: Color.solid.translucent.black._15, dark: Color.solid.translucent.white._15)
+            public static let _20 = Color(light: Color.solid.translucent.black._20, dark: Color.solid.translucent.white._20)
+            public static let _30 = Color(light: Color.solid.translucent.black._30, dark: Color.solid.translucent.white._30)
+            public static let _40 = Color(light: Color.solid.translucent.black._40, dark: Color.solid.translucent.white._40)
+            public static let _50 = Color(light: Color.solid.translucent.black._50, dark: Color.solid.translucent.white._50)
+            public static let _60 = Color(light: Color.solid.translucent.black._60, dark: Color.solid.translucent.white._60)
+            public static let _70 = Color(light: Color.solid.translucent.black._70, dark: Color.solid.translucent.white._70)
+            public static let _80 = Color(light: Color.solid.translucent.black._80, dark: Color.solid.translucent.white._80)
+            public static let _85 = Color(light: Color.solid.translucent.black._85, dark: Color.solid.translucent.white._85)
+            public static let _90 = Color(light: Color.solid.translucent.black._90, dark: Color.solid.translucent.white._90)
+            public static let _95 = Color(light: Color.solid.translucent.black._95, dark: Color.solid.translucent.white._95)
         }
     }
     
-    public struct Solid {
-        public static let White = Color("Solid/White", bundle: .module)
-        public static let Black = Color("Solid/Black", bundle: .module)
-        public static let Red = Color("Solid/Red", bundle: .module)
-        public static let Green = Color("Solid/Green", bundle: .module)
-        public static let Blue = Color("Solid/Blue", bundle: .module)
-        public static let Yellow = Color("Solid/Yellow", bundle: .module)
+    public struct solid {
+        public static let white = Color("Solid/White", bundle: .module)
+        public static let black = Color("Solid/Black", bundle: .module)
+        public static let red = Color("Solid/Red", bundle: .module)
+        public static let green = Color("Solid/Green", bundle: .module)
+        public static let blue = Color("Solid/Blue", bundle: .module)
+        public static let yellow = Color("Solid/Yellow", bundle: .module)
         
-        public struct Translucent {
-            public struct White {
+        public struct translucent {
+            public struct white {
                 public static let _5 = Color("Solid/Translucent/White/5", bundle: .module)
                 public static let _10 = Color("Solid/Translucent/White/10", bundle: .module)
                 public static let _15 = Color("Solid/Translucent/White/15", bundle: .module)
@@ -71,7 +70,7 @@ public struct ColorVars {
                 public static let _95 = Color("Solid/Translucent/White/95", bundle: .module)
             }
             
-            public struct Black {
+            public struct black {
                 public static let _5 = Color("Solid/Translucent/Black/5", bundle: .module)
                 public static let _10 = Color("Solid/Translucent/Black/10", bundle: .module)
                 public static let _15 = Color("Solid/Translucent/Black/15", bundle: .module)
@@ -87,7 +86,7 @@ public struct ColorVars {
                 public static let _95 = Color("Solid/Translucent/Black/95", bundle: .module)
             }
             
-            public struct Red {
+            public struct red {
                 public static let _10 = Color("Solid/Translucent/Red/10", bundle: .module)
                 public static let _20 = Color("Solid/Translucent/Red/20", bundle: .module)
                 public static let _30 = Color("Solid/Translucent/Red/30", bundle: .module)
@@ -96,7 +95,7 @@ public struct ColorVars {
                 public static let _60 = Color("Solid/Translucent/Red/60", bundle: .module)
             }
             
-            public struct Green {
+            public struct green {
                 public static let _10 = Color("Solid/Translucent/Green/10", bundle: .module)
                 public static let _20 = Color("Solid/Translucent/Green/20", bundle: .module)
                 public static let _30 = Color("Solid/Translucent/Green/30", bundle: .module)
@@ -105,7 +104,7 @@ public struct ColorVars {
                 public static let _60 = Color("Solid/Translucent/Green/60", bundle: .module)
             }
             
-            public struct Blue {
+            public struct blue {
                 public static let _10 = Color("Solid/Translucent/Blue/10", bundle: .module)
                 public static let _20 = Color("Solid/Translucent/Blue/20", bundle: .module)
                 public static let _30 = Color("Solid/Translucent/Blue/30", bundle: .module)
@@ -114,7 +113,7 @@ public struct ColorVars {
                 public static let _60 = Color("Solid/Translucent/Blue/60", bundle: .module)
             }
             
-            public struct Yellow {
+            public struct yellow {
                 public static let _10 = Color("Solid/Translucent/Yellow/10", bundle: .module)
                 public static let _20 = Color("Solid/Translucent/Yellow/20", bundle: .module)
                 public static let _30 = Color("Solid/Translucent/Yellow/30", bundle: .module)
@@ -125,64 +124,64 @@ public struct ColorVars {
         }
     }
     
-    public struct Brand {
-        public struct Solid {
-            public static let Everyday = ColorVars.Solid.Blue
-            public static let Family = ColorVars.Solid.Red
-            public static let World = ColorVars.Solid.Green
+    public struct brand {
+        public struct solid {
+            public static let everyday = Color.solid.blue
+            public static let family = Color.solid.red
+            public static let world = Color.solid.green
         }
         
-        public struct Monochrome {
-            public static let Everyday = Color("Brand/Monochrome/Everyday", bundle: .module)
-            public static let Family = Color("Brand/Monochrome/Family", bundle: .module)
-            public static let World = Color("Brand/Monochrome/World", bundle: .module)
+        public struct monochrome {
+            public static let everyday = Color("Brand/Monochrome/Everyday", bundle: .module)
+            public static let family = Color("Brand/Monochrome/Family", bundle: .module)
+            public static let world = Color("Brand/Monochrome/World", bundle: .module)
         }
     }
     
-    public struct Surface {
-        public static let Default = ColorVars.Grayscale.Solid._5
-        public static let Elevated = ColorVars.Grayscale.Solid._10
-        public static let Raised = ColorVars.Grayscale.Solid._15
-        public static let Clear = Color(light: ColorVars.Solid.White, dark: ColorVars.Solid.Black)
-        
-        public struct Inverted {
-            public static let Default = ColorVars.Grayscale.Solid._95
-            public static let Elevated = ColorVars.Grayscale.Solid._90
-            public static let Raised = ColorVars.Grayscale.Solid._85
-            public static let Clear = Color(light: ColorVars.Solid.Black, dark: ColorVars.Solid.White)
-        }
-    }
-    
-    public struct Content {
-        public static let Emphasized = ColorVars.Grayscale.Translucent._90
-        public static let Default = ColorVars.Grayscale.Translucent._50
-        public static let Muted = ColorVars.Grayscale.Translucent._40
-        public static let Disabled = ColorVars.Grayscale.Translucent._20
+    public struct surface {
+        public static let _default = Color.grayscale.solid._5
+        public static let elevated = Color.grayscale.solid._10
+        public static let raised = Color.grayscale.solid._15
+        public static let clear = Color(light: .solid.white, dark: .solid.black)
         
         public struct Inverted {
-            public static let Emphasized = Color(light: ColorVars.Solid.Translucent.White._90, dark: ColorVars.Solid.Translucent.Black._90)
-            public static let Default = Color(light: ColorVars.Solid.Translucent.White._60, dark: ColorVars.Solid.Translucent.Black._60)
-            public static let Muted = Color(light: ColorVars.Solid.Translucent.White._40, dark: ColorVars.Solid.Translucent.Black._40)
-            public static let Disabled = Color(light: ColorVars.Solid.Translucent.White._20, dark: ColorVars.Solid.Translucent.Black._20)
+            public static let _default = Color.grayscale.solid._95
+            public static let elevated = Color.grayscale.solid._90
+            public static let raised = Color.grayscale.solid._85
+            public static let clear = Color(light: .solid.black, dark: .solid.black)
         }
     }
     
-    public struct Line {
-        public static let Border = ColorVars.Grayscale.Translucent._10
-        public static let Divider = Color(light: ColorVars.Grayscale.Solid._40, dark: ColorVars.Grayscale.Solid._50)
+    public struct content {
+        public static let emphasized = Color.grayscale.translucent._90
+        public static let _default = Color.grayscale.translucent._50
+        public static let muted = Color.grayscale.translucent._40
+        public static let disabled = Color.grayscale.translucent._20
+        
+        public struct inverted {
+            public static let emphasized = Color(light: .solid.translucent.white._90, dark: .solid.translucent.black._90)
+            public static let _default = Color(light: .solid.translucent.white._60, dark: .solid.translucent.black._60)
+            public static let muted = Color(light: .solid.translucent.white._40, dark: .solid.translucent.black._40)
+            public static let disabled = Color(light: .solid.translucent.white._20, dark: .solid.translucent.black._20)
+        }
     }
     
-    public struct Interaction {
-        public static let Hovered = ColorVars.Grayscale.Translucent._5
-        public static let Pressed = ColorVars.Grayscale.Translucent._10
-        public static let Focused = ColorVars.Grayscale.Translucent._5
-        public static let Disabled = ColorVars.Transparent
+    public struct line {
+        public static let border = Color.grayscale.translucent._10
+        public static let divider = Color(light: .grayscale.solid._40, dark: .grayscale.solid._50)
+    }
+    
+    public struct interaction {
+        public static let hovered = Color.grayscale.translucent._5
+        public static let pressed = Color.grayscale.translucent._10
+        public static let focused = Color.grayscale.translucent._5
+        public static let disabled = Color.transparent
         
-        public struct Inverted {
-            public static let Hovered = Color(light: ColorVars.Solid.Translucent.White._10, dark: ColorVars.Solid.Translucent.Black._10)
-            public static let Pressed = Color(light: ColorVars.Solid.Translucent.White._15, dark: ColorVars.Solid.Translucent.Black._15)
-            public static let Focused = Color(light: ColorVars.Solid.Translucent.White._5, dark: ColorVars.Solid.Translucent.Black._5)
-            public static let Disabled = Color(light: ColorVars.Solid.Translucent.White._50, dark: ColorVars.Solid.Translucent.Black._50)
+        public struct inverted {
+            public static let hovered = Color(light: .solid.translucent.white._10, dark: .solid.translucent.black._10)
+            public static let pressed = Color(light: .solid.translucent.white._15, dark: .solid.translucent.black._15)
+            public static let focused = Color(light: .solid.translucent.white._5, dark: .solid.translucent.black._5)
+            public static let disabled = Color(light: .solid.translucent.white._50, dark: .solid.translucent.black._50)
         }
     }
 }
