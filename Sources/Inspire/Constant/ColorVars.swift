@@ -139,13 +139,13 @@ extension Color {
     }
     
     public struct surface {
-        public static let _default = Color.grayscale.solid._5
+        public static let `default` = Color.grayscale.solid._5
         public static let elevated = Color.grayscale.solid._10
         public static let raised = Color.grayscale.solid._15
         public static let clear = Color(light: .solid.white, dark: .solid.black)
         
         public struct Inverted {
-            public static let _default = Color.grayscale.solid._95
+            public static let `default` = Color.grayscale.solid._95
             public static let elevated = Color.grayscale.solid._90
             public static let raised = Color.grayscale.solid._85
             public static let clear = Color(light: .solid.black, dark: .solid.black)
@@ -154,13 +154,13 @@ extension Color {
     
     public struct content {
         public static let emphasized = Color.grayscale.translucent._90
-        public static let _default = Color.grayscale.translucent._50
+        public static let `default` = Color.grayscale.translucent._50
         public static let muted = Color.grayscale.translucent._40
         public static let disabled = Color.grayscale.translucent._20
         
         public struct inverted {
             public static let emphasized = Color(light: .solid.translucent.white._90, dark: .solid.translucent.black._90)
-            public static let _default = Color(light: .solid.translucent.white._60, dark: .solid.translucent.black._60)
+            public static let `default` = Color(light: .solid.translucent.white._60, dark: .solid.translucent.black._60)
             public static let muted = Color(light: .solid.translucent.white._40, dark: .solid.translucent.black._40)
             public static let disabled = Color(light: .solid.translucent.white._20, dark: .solid.translucent.black._20)
         }
