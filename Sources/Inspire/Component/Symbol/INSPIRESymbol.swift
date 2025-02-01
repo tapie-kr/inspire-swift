@@ -1,5 +1,5 @@
 //
-//  TAPIESymbol.swift
+//  INSPIRESymbol.swift
 //  Inspire
 //
 //  Created by  jwkwon0817 on 2/1/25.
@@ -7,12 +7,9 @@
 
 import SwiftUI
 
-public struct TAPIESymbol: View {
-    public enum Style {
-        case grayscale, solid
-    }
-    
+public struct INSPIRESymbol: View {
     public enum Size: CGFloat {
+        case _128 = 128
         case _96 = 96
         case _80 = 80
         case _72 = 72
@@ -25,19 +22,11 @@ public struct TAPIESymbol: View {
         case _8 = 8
     }
     
-    let style: Style
     let size: Size
-    let label: Bool
-    
-    public init(style: Style = .grayscale, size: Size, label: Bool = true) {
-        self.style = style
-        self.size = size
-        self.label = label
-    }
 
     
     public var body: some View {
-        Image("Symbol/TAPIE/\(style == Style.grayscale ? "Grayscale" : "Solid")/\(label ? "" : "No")Label", bundle: .module)
+        Image("Symbol/INSPIRE", bundle: .module)
             .resizable()
             .scaledToFit()
             .frame(height: size.rawValue)
@@ -45,5 +34,5 @@ public struct TAPIESymbol: View {
 }
 
 #Preview {
-    TAPIESymbol(style: .solid, size: ._80, label: false)
+    INSPIRESymbol(size: ._128)
 }
