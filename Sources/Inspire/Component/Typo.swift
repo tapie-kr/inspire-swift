@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  Typo.swift
 //  Inspire
 //
 //  Created by  jwkwon0817 on 2/1/25.

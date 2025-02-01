@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct radiusVars {
-    public static let none: CGFloat = 0
-    public static let sharp: CGFloat = 4
-    public static let subtle: CGFloat = 6
-    public static let _default: CGFloat = 8
-    public static let smooth: CGFloat = 12
-    public static let rounded: CGFloat = 16
-    public static let pill: CGFloat = 24
-    public static let full: CGFloat = 9999
+public enum RadiusVars: CGFloat {
+    case none = 0
+    case sharp = 4
+    case subtle = 6
+    case _default = 8
+    case smooth = 12
+    case rounded = 16
+    case pill = 24
+    case full = 9999
 }
