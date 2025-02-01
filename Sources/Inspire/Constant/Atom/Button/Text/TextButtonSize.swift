@@ -1,5 +1,5 @@
 //
-//  ButtonSize.swift
+//  TextButtonSize.swift
 //  Inspire
 //
 //  Created by  jwkwon0817 on 2/2/25.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum ButtonSize {
+public enum TextButtonSize {
     case large, medium, small
     
     public var spacing: CGFloat {
         switch self {
-        case .large: return spacingVars.micro
+        case .large: return spacingVars.tiny
         case .medium, .small: return spacingVars.mini
         }
     }
@@ -50,16 +50,17 @@ public enum ButtonSize {
     
     public var paddingHorizontal: CGFloat {
         switch self {
-        case .large, .medium: return spacingVars.base
-        case .small: return spacingVars.petite
+        case .large: return spacingVars.micro
+        case .medium: return spacingVars.tiny
+        case .small: return spacingVars.mini
         }
     }
     
     public var paddingVertical: CGFloat {
         switch self {
-        case .large: return spacingVars.petite
-        case .medium: return spacingVars.micro
-        case .small: return spacingVars.tiny
+        case .large: return spacingVars.tiny
+        case .medium: return spacingVars.mini
+        case .small: return spacingVars.optical
         }
     }
 }

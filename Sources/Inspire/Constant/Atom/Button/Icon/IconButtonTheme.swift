@@ -1,5 +1,5 @@
 //
-//  ButtonTheme.swift
+//  IconButtonTheme.swift
 //  Inspire
 //
 //  Created by  jwkwon0817 on 2/2/25.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-public enum ButtonTheme {
+public enum IconButtonTheme {
     case monochrome, red, green, blue, yellow
     
-    public func backgroundColor(for variant: ButtonVariant) -> Color {
+    public func backgroundColor(for variant: IconButtonVariant) -> Color {
         switch (self, variant) {
         case (.monochrome, .primary):
             return .surface.inverted.elevated
@@ -39,7 +39,7 @@ public enum ButtonTheme {
         }
     }
     
-    public func foregroundColor(for variant: ButtonVariant) -> Color {
+    public func foregroundColor(for variant: IconButtonVariant) -> Color {
         switch (self, variant) {
         case (.monochrome, .primary):
             return .content.inverted.emphasized

@@ -1,5 +1,5 @@
 //
-//  DefaultButton.swift
+//  TextButton.swift
 //  Inspire
 //
 //  Created by  jwkwon0817 on 2/2/25.
@@ -8,40 +8,28 @@
 import SwiftUI
 
 
-public struct DefaultButton: View {
+public struct TextButton: View {
     let text: String
-    let variant: DefaultButtonVariant
-    let theme: DefaultButtonTheme
-    let size: DefaultButtonSize
+    let size: TextButtonSize
     let leadingIcon: IconName?
     let trailingIcon: IconName?
     let action: () -> Void
     
     public init(
         _ text: String,
-        variant: DefaultButtonVariant = .primary,
-        theme: DefaultButtonTheme = .monochrome,
-        size: DefaultButtonSize = .large,
+        size: TextButtonSize = .large,
         leadingIcon: IconName? = nil,
         trailingIcon: IconName? = nil,
         action: @escaping () -> Void = {}
     ) {
         self.text = text
-        self.variant = variant
-        self.theme = theme
         self.size = size
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
         self.action = action
     }
     
-    private var foregroundColor: Color {
-        theme.foregroundColor(for: variant)
-    }
-    
-    private var backgroundColor: Color {
-        theme.backgroundColor(for: variant)
-    }
+    let foregroundColor: Color = .content.emphasized
     
     public var body: some View {
         Button(action: action) {
@@ -56,7 +44,6 @@ public struct DefaultButton: View {
             }
             .padding(.horizontal, size.paddingHorizontal)
             .padding(.vertical, size.paddingVertical)
-            .background(backgroundColor)
             .radius(size.radius)
         }
     }
@@ -64,7 +51,7 @@ public struct DefaultButton: View {
 
 #Preview {
     VStack(spacing: 10) {
-        DefaultButton("Button", leadingIcon: GlyphIcon.ADD_PHOTO_ALTERNATE, action: {})
-        DefaultButton("Button", variant: .secondary, theme: .red)
+        TextButton("Button", leadingIcon: GlyphIcon.ADD_PHOTO_ALTERNATE, action: {})
+        TextButton("Button")
     }
 }
