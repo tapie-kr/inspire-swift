@@ -27,5 +27,5 @@ public struct Typo: View {
 }
 
 #Preview {
-    Typo("INSPIRE: Creative Kit", size: .giant, weight: .medium, color: .content._default)
+    Typo("INSPIRE: Creative Kit", size: .giant, weight: .medium, color: .content.inverted.default)
 }
