@@ -27,4 +27,11 @@ extension View {
     public func radius(_ radius: RadiusVars) -> some View {
         clipShape(RoundedRectangle(cornerRadius: radius.rawValue))
     }
+    
+    public func borderRadius(_ color: Color, width: CGFloat = 1, radius: RadiusVars) -> some View {
+        overlay(
+            RoundedRectangle(cornerRadius: radius.rawValue)
+                .stroke(color, lineWidth: width)
+        )
+    }
 }
