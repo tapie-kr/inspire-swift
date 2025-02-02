@@ -43,13 +43,12 @@ struct Icon: View {
     }
     
     var body: some View {
-        if let action {
-            SwiftUI.Button(action: action) {
-                iconView
+        iconView
+            .onTapGesture {
+                if let action {
+                    action()
+                }
             }
-        } else {
-            iconView
-        }
     }
 }
 
