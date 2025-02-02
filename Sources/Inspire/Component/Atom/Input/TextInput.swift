@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextInput: View {
+public struct TextInput: View {
     @FocusState var isFocused: Bool
     
     @Binding var text: String
@@ -19,7 +19,7 @@ struct TextInput: View {
     let keyboardType: UIKeyboardType
     let trailingAction: (() -> Void)?
     
-    init(
+    public init(
         text: Binding<String>,
         size: TextInputSize = .large,
         placeholder: String = " ",
@@ -43,7 +43,7 @@ struct TextInput: View {
         isFocused ? .content.emphasized : .content.default
     }
     
-    var body: some View {
+    public var body: some View {
         HStack(spacing: size.spacing) {
             if let leadingIcon {
                 Icon(name: leadingIcon, size: size.iconSize, color: iconColor)

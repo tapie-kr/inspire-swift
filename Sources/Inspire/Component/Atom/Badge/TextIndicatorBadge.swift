@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct TextIndicatorBadge: View {
+public struct TextIndicatorBadge: View {
     let text: String
     let variant: TextIndicatorBadgeVariant
     
-    init(_ text: String, variant: TextIndicatorBadgeVariant = .default) {
+    public init(_ text: String, variant: TextIndicatorBadgeVariant = .default) {
         self.text = text
         self.variant = variant
     }
     
-    var body: some View {
+    public var body: some View {
         Typo(text, size: .mini, weight: .medium, color: variant.foregroundColor)
             .padding(.vertical, spacingVars.none)
             .padding(.horizontal, spacingVars.mini)

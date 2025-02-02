@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct Interaction: View {
+public struct Interaction: View {
     let status: InteractionStatus
     let inverted: Bool
     
-    init(status: InteractionStatus, inverted: Bool = false) {
+    public init(status: InteractionStatus, inverted: Bool = false) {
         self.status = status
         self.inverted = inverted
     }
     
-    var body: some View {
+    public var body: some View {
         Rectangle()
             .fill(status.fillColor(inverted: inverted))
             .frame(maxWidth: .infinity, maxHeight: .infinity)

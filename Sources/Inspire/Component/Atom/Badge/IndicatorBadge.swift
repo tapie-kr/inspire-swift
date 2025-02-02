@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct IndicatorBadge: View {
+public struct IndicatorBadge: View {
     let size: IndicatorBadgeSize
     let theme: IndicatorBadgeTheme
     
-    init(size: IndicatorBadgeSize = .large, theme: IndicatorBadgeTheme = .monochrome) {
+    public init(size: IndicatorBadgeSize = .large, theme: IndicatorBadgeTheme = .monochrome) {
         self.size = size
         self.theme = theme
     }
     
-    var body: some View {
+    public var body: some View {
         Circle()
             .fill(theme.backgroundColor)
             .frame(width: size.indicatorSize, height: size.indicatorSize)

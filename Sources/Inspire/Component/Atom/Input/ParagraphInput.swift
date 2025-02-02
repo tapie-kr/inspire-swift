@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ParagraphInput: View {
+public struct ParagraphInput: View {
     @FocusState var isFocused: Bool
     
     @Binding var text: String
@@ -17,7 +17,7 @@ struct ParagraphInput: View {
     let height: CGFloat
     let maxLength: Int?
     
-    init(
+    public init(
         text: Binding<String>,
         size: ParagraphInputSize = .large,
         placeholder: String = " ",
@@ -49,7 +49,7 @@ struct ParagraphInput: View {
         isFocused ? .content.emphasized : .content.default
     }
     
-    var body: some View {
+    public var body: some View {
         TextEditor(text: $text)
             .typo(size: size.fontSize, color: .content.emphasized)
             .placeholder(for: text, alignment: .topLeading) {

@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct DefaultBadge: View {
+public struct DefaultBadge: View {
     let text: String
     let size: DefaultBadgeSize
     let theme: DefaultBadgeTheme
     let leadingIcon: IconName?
     
-    init(_ text: String, size: DefaultBadgeSize = .large, theme: DefaultBadgeTheme = .monochrome, leadingIcon: IconName? = nil) {
+    public init(_ text: String, size: DefaultBadgeSize = .large, theme: DefaultBadgeTheme = .monochrome, leadingIcon: IconName? = nil) {
         self.text = text
         self.size = size
         self.theme = theme
         self.leadingIcon = leadingIcon
     }
     
-    var body: some View {
+    public var body: some View {
         HStack(spacing: size.spacing) {
             if let leadingIcon {
                 Icon(name: leadingIcon, size: size.iconSize, color: theme.foregroundColor)
