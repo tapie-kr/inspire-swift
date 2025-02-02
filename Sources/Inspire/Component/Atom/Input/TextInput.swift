@@ -11,20 +11,22 @@ struct TextInput: View {
     @FocusState var isFocused: Bool
     
     @Binding var text: String
-    let size: InputSize
+    let size: TextInputSize
     let placeholder: String
     let leadingIcon: IconName?
     let trailingIcon: IconName?
     let isSecure: Bool
+    let keyboardType: UIKeyboardType
     let trailingAction: (() -> Void)?
     
     init(
         text: Binding<String>,
-        size: InputSize = .large,
+        size: TextInputSize = .large,
         placeholder: String = " ",
         leadingIcon: IconName? = nil,
         trailingIcon: IconName? = nil,
         isSecure: Bool = false,
+        keyboardType: UIKeyboardType = .default,
         trailingAction: (() -> Void)? = nil
     ) {
         self._text = text
@@ -33,6 +35,7 @@ struct TextInput: View {
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
         self.isSecure = isSecure
+        self.keyboardType = keyboardType
         self.trailingAction = trailingAction
     }
     
@@ -49,6 +52,7 @@ struct TextInput: View {
             Group {
                 if isSecure {
                     SecureField("", text: $text)
+                        .keyboardType(keyboardType)
                         .placeholder(for: text) {
                             Typo(placeholder, size: size.fontSize, color: .content.muted)
                         }
@@ -59,6 +63,9 @@ struct TextInput: View {
                         .contentShape(Rectangle())
                 } else {
                     TextField("", text: $text)
+                        .keyboardType(keyboardType)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
                         .placeholder(for: text) {
                             Typo(placeholder, size: size.fontSize, color: .content.muted)
                         }
