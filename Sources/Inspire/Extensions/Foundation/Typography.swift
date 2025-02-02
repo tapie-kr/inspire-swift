@@ -107,11 +107,11 @@ struct TypographyModifier: ViewModifier {
        
        content
            .font(.custom(typography.fontName, size: typography.fontSize))
-           .foregroundColor(color)
+           .foregroundStyle(color)
            .lineSpacing((typography.lineHeight - typography.fontSize) / 2)
            .padding(.vertical, (typography.lineHeight - typography.fontSize) / 4)
            .kerning(typography.letterSpacing)
-           .fixedSize(horizontal: false, vertical: true)
+//           .fixedSize(horizontal: false, vertical: true)
    }
 }
 
