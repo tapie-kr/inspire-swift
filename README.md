@@ -1,4 +1,4 @@
-![Cover Image](https://minio-mgowcsocwso4g0wo0o0wg0sk.apne2a.algorix.cloud/inspire-asset/inspire-cover.png)
+![Cover Image](https://github.com/tapie-kr/.github/blob/assets/cover_swift.png)
 
 # INSPIRE : Creative Kit for Swift
 
