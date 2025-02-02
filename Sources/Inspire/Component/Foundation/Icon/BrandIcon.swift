@@ -26,6 +26,7 @@ public enum BrandIcon: String, IconName {
     case LINUX = "linux"
     case MICROSOFT = "microsoft"
     case MINIO = "minio"
+    case MONGODB = "mongodb"
     case NEXTJS = "nextjs"
     case NODEJS = "nodejs"
     case NOTION = "notion"
