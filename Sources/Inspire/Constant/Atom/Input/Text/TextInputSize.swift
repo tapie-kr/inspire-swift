@@ -1,5 +1,5 @@
 //
-//  InputSize.swift
+//  TextInputSize.swift
 //  Inspire
 //
 //  Created by  jwkwon0817 on 2/2/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum InputSize {
+public enum TextInputSize {
     case large, medium
     
     public var fontSize: Typography.Size {

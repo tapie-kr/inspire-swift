@@ -13,9 +13,8 @@ extension View {
         alignment: Alignment = .leading,
         @ViewBuilder placeholder: () -> Content
     ) -> some View {
-        ZStack(alignment: alignment) {
+        overlay(alignment: alignment) {
             placeholder().opacity(shouldShow.isEmpty ? 1 : 0)
-            self
         }
     }
 }
