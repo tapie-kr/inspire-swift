@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Color {
     
-    public static let transparent = Color("Solid/Blue", bundle: .module)
+    public static let transparent = Color("Transparent", bundle: .module)
     
     public struct grayscale {
         public struct solid {

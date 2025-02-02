@@ -9,10 +9,13 @@ import SwiftUI
 
 
 public struct TextButton: View {
+    @State var isPressed: Bool = false
+    
     let text: String
     let size: TextButtonSize
     let leadingIcon: IconName?
     let trailingIcon: IconName?
+    let disabled: Bool
     let action: () -> Void
     
     public init(
@@ -20,12 +23,14 @@ public struct TextButton: View {
         size: TextButtonSize = .large,
         leadingIcon: IconName? = nil,
         trailingIcon: IconName? = nil,
+        disabled: Bool = false,
         action: @escaping () -> Void = {}
     ) {
         self.text = text
         self.size = size
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
+        self.disabled = disabled
         self.action = action
     }
     
@@ -44,14 +49,17 @@ public struct TextButton: View {
             }
             .padding(.horizontal, size.paddingHorizontal)
             .padding(.vertical, size.paddingVertical)
+            .interaction(disabled: disabled, pressed: isPressed, inverted: false)
             .radius(size.radius)
         }
+        .disabled(disabled)
+        .pressedBindable(isPressed: $isPressed)
     }
 }
 
 #Preview {
     VStack(spacing: 10) {
         TextButton("Button", leadingIcon: GlyphIcon.ADD_PHOTO_ALTERNATE, action: {})
-        TextButton("Button")
+        TextButton("Button", disabled: true)
     }
 }

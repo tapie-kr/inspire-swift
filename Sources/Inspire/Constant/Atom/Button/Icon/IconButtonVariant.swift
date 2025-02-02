@@ -7,4 +7,8 @@
 
 public enum IconButtonVariant {
     case primary, secondary
+    
+    public var inverted: Bool {
+        self == .primary
+    }
 }
