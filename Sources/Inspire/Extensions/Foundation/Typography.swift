@@ -114,3 +114,13 @@ struct TypographyModifier: ViewModifier {
            .fixedSize(horizontal: false, vertical: true)
    }
 }
+
+extension View {
+    func typo(
+        size: Typography.Size,
+        weight: Typography.Weight = .regular,
+        color: Color = .content.default
+    ) -> some View {
+        self.modifier(TypographyModifier(size: size, weight: weight, color: color))
+    }
+}

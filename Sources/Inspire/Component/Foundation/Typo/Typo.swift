@@ -22,7 +22,7 @@ public struct Typo: View {
 
     public var body: some View {
         Text(text)
-            .modifier(TypographyModifier(size: size, weight: weight, color: color))
+            .typo(size: size, weight: weight, color: color)
     }
 }
 
