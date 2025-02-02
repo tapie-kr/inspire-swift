@@ -9,6 +9,7 @@ import SwiftUI
 
 public struct SegmentGroup<T: Equatable, Content: View>: View {
     @Binding var currentValue: T
+    @Namespace private var namespace
     let content: Content
     
     public init(currentValue: Binding<T>, @ViewBuilder content: () -> Content) {
@@ -24,7 +25,7 @@ public struct SegmentGroup<T: Equatable, Content: View>: View {
         .padding(spacingVars.mini)
         .background(Color.surface.elevated)
         .radius(.default)
-        .environment(SegmentGroupState(selectedValue: $currentValue))
+        .environment(SegmentGroupState(selectedValue: $currentValue, namespace: namespace))
     }
 }
 

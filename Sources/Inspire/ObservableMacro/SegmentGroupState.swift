@@ -10,9 +10,11 @@ import Observation
 
 @Observable
 class SegmentGroupState<T: Equatable> {
-   var selectedValue: Binding<T>
-   
-   init(selectedValue: Binding<T>) {
-       self.selectedValue = selectedValue
-   }
+    var selectedValue: Binding<T>
+    var namespace: Namespace.ID
+    
+    init(selectedValue: Binding<T>, namespace: Namespace.ID) {
+        self.selectedValue = selectedValue
+        self.namespace = namespace
+    }
 }
