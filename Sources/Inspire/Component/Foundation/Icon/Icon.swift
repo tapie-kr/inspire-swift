@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct Icon: View {
+public struct Icon: View {
     let name: IconName
     let size: CGFloat
     let color: Color
     let action: (() -> Void)?
         
-    init(
+    public init(
         name: IconName = GlyphIcon.DEFAULT,
         size: CGFloat = 20,
         color: Color = .content.emphasized,
@@ -42,7 +42,7 @@ struct Icon: View {
             .foregroundStyle(color)
     }
     
-    var body: some View {
+    public var body: some View {
         iconView
             .onTapGesture {
                 if let action {
