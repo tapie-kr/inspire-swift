@@ -16,6 +16,7 @@ public struct ParagraphInput: View {
     let keyboardType: UIKeyboardType
     let height: CGFloat
     let maxLength: Int?
+    let disabled: Bool
     
     public init(
         text: Binding<String>,
@@ -23,7 +24,8 @@ public struct ParagraphInput: View {
         placeholder: String = " ",
         keyboardType: UIKeyboardType = .default,
         height: CGFloat = 120,
-        maxLength: Int? = nil
+        maxLength: Int? = nil,
+        disabled: Bool = false
     ) {
         self._text = text
         self.size = size
@@ -31,6 +33,7 @@ public struct ParagraphInput: View {
         self.keyboardType = keyboardType
         self.height = height
         self.maxLength = maxLength
+        self.disabled = disabled
     }
     
     private var formattedCount: String {
@@ -45,15 +48,12 @@ public struct ParagraphInput: View {
         return formatter.string(from: NSNumber(value: maxLength ?? 0)) ?? "\(maxLength ?? 0)"
     }
     
-    private var iconColor: Color {
-        isFocused ? .content.emphasized : .content.default
-    }
-    
     public var body: some View {
         TextEditor(text: $text)
+            .disabled(disabled)
             .typo(size: size.fontSize, color: .content.emphasized)
             .placeholder(for: text, alignment: .topLeading) {
-                Typo(placeholder, size: size.fontSize, color: .content.muted)
+                Typo(placeholder, size: size.fontSize, color: disabled ? .content.disabled : .content.muted)
                     .padding(.horizontal, size.paddingHorizontal / 2)
                     .padding(.vertical, size.paddingVertical)
             }
@@ -67,6 +67,7 @@ public struct ParagraphInput: View {
             .padding(.horizontal, size.paddingHorizontal)
             .padding(.vertical, size.paddingVertical)
             .scrollContentBackground(.hidden)
+            .interaction(disabled: disabled, pressed: false, inverted: true)
             .background(Color.surface.default)
             .borderRadius(isFocused ? .grayscale.translucent._70 : .line.border, width: 1, radius: size.radius)
             .radius(size.radius)
@@ -100,6 +101,7 @@ public struct ParagraphInput: View {
     VStack {
         ParagraphInput(text: $text, placeholder: "Placeholder", maxLength: 300)
         ParagraphInput(text: $text2, size: .medium, placeholder: "Placeholder")
+        ParagraphInput(text: $text2, size: .medium, placeholder: "Placeholder", height: 100, disabled: true)
     }
     .frame(width: 300)
 }

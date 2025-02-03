@@ -18,6 +18,7 @@ public struct TextInput: View {
     let isSecure: Bool
     let keyboardType: UIKeyboardType
     let trailingAction: (() -> Void)?
+    let disabled: Bool
     
     public init(
         text: Binding<String>,
@@ -27,7 +28,8 @@ public struct TextInput: View {
         trailingIcon: IconName? = nil,
         isSecure: Bool = false,
         keyboardType: UIKeyboardType = .default,
-        trailingAction: (() -> Void)? = nil
+        trailingAction: (() -> Void)? = nil,
+        disabled: Bool = false
     ) {
         self._text = text
         self.size = size
@@ -37,10 +39,15 @@ public struct TextInput: View {
         self.isSecure = isSecure
         self.keyboardType = keyboardType
         self.trailingAction = trailingAction
+        self.disabled = disabled
     }
     
     private var iconColor: Color {
-        isFocused ? .content.emphasized : .content.default
+        disabled ? .content.disabled : isFocused ? .content.emphasized : .content.default
+    }
+    
+    private var placeholderColor: Color {
+        disabled ? .content.disabled : .content.muted
     }
     
     public var body: some View {
@@ -54,26 +61,28 @@ public struct TextInput: View {
                     SecureField("", text: $text)
                         .keyboardType(keyboardType)
                         .placeholder(for: text) {
-                            Typo(placeholder, size: size.fontSize, color: .content.muted)
+                            Typo(placeholder, size: size.fontSize, color: placeholderColor)
                         }
                         .focused($isFocused)
                         .typo(size: size.fontSize, color: .content.emphasized)
                         .tint(.content.emphasized)
                         .frame(maxWidth: .infinity)
                         .contentShape(Rectangle())
+                        .disabled(disabled)
                 } else {
                     TextField("", text: $text)
                         .keyboardType(keyboardType)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                         .placeholder(for: text) {
-                            Typo(placeholder, size: size.fontSize, color: .content.muted)
+                            Typo(placeholder, size: size.fontSize, color: placeholderColor)
                         }
                         .focused($isFocused)
                         .typo(size: size.fontSize, color: .content.emphasized)
                         .tint(.content.emphasized)
                         .frame(maxWidth: .infinity)
                         .contentShape(Rectangle())
+                        .disabled(disabled)
                 }
             }
             
@@ -84,6 +93,7 @@ public struct TextInput: View {
         .padding(size.padding)
         .frame(maxWidth: .infinity)
         .frame(height: size.height)
+        .interaction(disabled: disabled, pressed: false, inverted: true)
         .background(Color.surface.default)
         .borderRadius(isFocused ? .grayscale.translucent._70 : .grayscale.translucent._10, width: 1, radius: size.radius)
         .radius(size.radius)
@@ -104,6 +114,7 @@ public struct TextInput: View {
             isSecure.toggle()
         })
         TextInput(text: $text2, size: .medium, leadingIcon: GlyphIcon.DEFAULT, isSecure: false)
+        TextInput(text: $text2, size: .medium, placeholder: "Placeholder", leadingIcon: GlyphIcon.DEFAULT, isSecure: false, disabled: true)
     }
     .frame(width: 300)
 }
