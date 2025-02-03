@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct TextGroup: View {
+public struct TextGroup: View {
     let title: String
     let description: String
     
-    init(title: String, description: String) {
+    public init(title: String, description: String) {
         self.title = title
         self.description = description
     }
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: spacingVars.tiny) {
             Typo(title, size: .medium, weight: .semibold)
             Typo(description, size: .petite, weight: .medium)
