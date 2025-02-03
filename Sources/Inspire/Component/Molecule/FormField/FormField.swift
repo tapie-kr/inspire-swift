@@ -12,8 +12,6 @@ public struct FormField<Content: View>: View {
     let isEssential: Bool
     let description: String?
     let size: FormFieldSize
-    let type: FormFieldType
-    let direction: FormFieldDirection
     let disabled: Bool
     let content: Content
     
@@ -22,8 +20,6 @@ public struct FormField<Content: View>: View {
         isEssential: Bool = false,
         description: String? = nil,
         size: FormFieldSize = .large,
-        type: FormFieldType = .single,
-        direction: FormFieldDirection = .vertical,
         disabled: Bool = false,
         @ViewBuilder content: () -> Content
     ) {
@@ -31,8 +27,6 @@ public struct FormField<Content: View>: View {
         self.isEssential = isEssential
         self.description = description
         self.size = size
-        self.type = type
-        self.direction = direction
         self.disabled = disabled
         self.content = content()
     }
