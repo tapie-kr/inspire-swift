@@ -22,6 +22,7 @@ public enum GlyphIcon: String, IconName {
     case BRUSH = "brush"
     case BUG_REPORT = "bug_report"
     case CALENDAR_MONTH = "calendar_month"
+    case CALENDAR_TODAY = "calendar_today"
     case CALL = "call"
     case CATEGORY_SEARCH = "category_search"
     case CHECK = "check"
