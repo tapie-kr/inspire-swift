@@ -76,6 +76,7 @@ public enum GlyphIcon: String, IconName {
     case LOGIN = "login"
     case LOGOUT = "logout"
     case MAIL = "mail"
+    case MALE = "male"
     case MEMORY = "memory"
     case MENU = "menu"
     case MOVIE = "movie"
